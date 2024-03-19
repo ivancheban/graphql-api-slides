@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="container">
+    <h2>Ivan's GitHub repository</h2>
+    <p>Information about the contents of my repository.</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Owner name</th>
+                <th style="text-align: center;">Owner bio</th>
+                <th style="text-align: center;">Owner location</th>
+                <th style="text-align: center;">Repositories count</th>
+                <th style="text-align: center;">Favorite repo</th>
+                <th style="text-align: center;">Favorite repo description</th>
+                <th style="text-align: center;">Favorite repo URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">{{this.viewer.name}}</td>
+                <td style="text-align: center;">{{this.viewer.bio}}</td>
+                <td style="text-align: center;">{{this.viewer.location}}</td>
+                <td style="text-align: center;">{{this.viewer.repositories.totalCount}}</td>
+                <td style="text-align: center;">{{this.viewer.repository.name}}</td>
+                <td style="text-align: center;">{{this.viewer.repository.description}}</td>
+                <td style="text-align: center;"><a href="{{this.viewer.repository.url}}">{{this.viewer.repository.url}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</html>

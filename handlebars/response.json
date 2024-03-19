@@ -1,0 +1,23 @@
+{
+    "viewer": {
+        "name": "Ivan Cheban",
+        "bio": "Senior Technical Writer",
+        "location": "Kyiv, Ukraine",
+        "repositories": {
+            "totalCount": 126
+        },
+        "repository": {
+            "name": "docsy-site",
+            "description": "This is the code for Documentation Portal website. This is my pet project where I write articles on using static site generators, MadCap Flare, Git, and Vale linter.",
+            "url": "https://github.com/ivancheban/docsy-site",
+            "collaborators": {
+                "nodes": [
+                    {
+                        "name": "Ivan Cheban"
+                    }
+                ]
+            },
+            "updatedAt": "2024-01-25T16:02:33Z"
+        }
+    }
+}
