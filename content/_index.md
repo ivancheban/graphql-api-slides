@@ -33,6 +33,7 @@ title = "Create online presentations with Hugo"
 ---
 
 **REST API**:
+
 - REST enables client applications to exchange data with a server using HTTP verbs.
 - REST APIs require loading from multiple URLs.
 - REST APIs use HTTP methods such as GET, POST, PUT, and DELETE to perform operations on resources that typically return a fixed data structure.
@@ -73,13 +74,18 @@ https://graphql.org/img/graphiql.mp4?x
 This is an example of a query in GitHub:
 
 ```graphql
-{
+query ($number_of_repos: Int!) {
   viewer {
     name
     bio
     location
-    repositories {
+    repositories(last: $number_of_repos) {
       totalCount
+      nodes {
+        name
+        url
+        description
+      }
     }
     repository(name: "docsy-site") {
       name
@@ -98,6 +104,16 @@ This is an example of a query in GitHub:
 
 ---
 
+This query has variables. You input variables in the dedicated window at the bottom of GraphiQL Editor using JSON format:
+
+```json
+{
+  "number_of_repos": 10
+}
+```
+
+---
+
 The response to the query:
 
 ```json
@@ -108,7 +124,59 @@ The response to the query:
       "bio": "Senior Technical Writer",
       "location": "Kyiv, Ukraine",
       "repositories": {
-        "totalCount": 126
+        "totalCount": 125,
+        "nodes": [
+          {
+            "name": "test-material",
+            "url": "https://github.com/ivancheban/test-material",
+            "description": null
+          },
+          {
+            "name": "kpi-tech-writer-course",
+            "url": "https://github.com/ivancheban/kpi-tech-writer-course",
+            "description": "This repository stores the readme files provided by KPI students"
+          },
+          {
+            "name": "astro-design-system",
+            "url": "https://github.com/ivancheban/astro-design-system",
+            "description": null
+          },
+          {
+            "name": "astro-manual",
+            "url": "https://github.com/ivancheban/astro-manual",
+            "description": null
+          },
+          {
+            "name": "bookshelf",
+            "url": "https://github.com/ivancheban/bookshelf",
+            "description": "This is my personal list of books published as a site with MkDocs Material."
+          },
+          {
+            "name": "writerside",
+            "url": "https://github.com/ivancheban/writerside",
+            "description": null
+          },
+          {
+            "name": "docusaurus-openapi",
+            "url": "https://github.com/ivancheban/docusaurus-openapi",
+            "description": "🦕 OpenAPI plugin for generating API reference docs in Docusaurus v2."
+          },
+          {
+            "name": "api-docusaurus",
+            "url": "https://github.com/ivancheban/api-docusaurus",
+            "description": null
+          },
+          {
+            "name": "bitcoin-price",
+            "url": "https://github.com/ivancheban/bitcoin-price",
+            "description": "A static web page that checks and displays the current price of Bitcoin in USD"
+          },
+          {
+            "name": "graphql-api-slides",
+            "url": "https://github.com/ivancheban/graphql-api-slides",
+            "description": null
+          }
+        ]
       },
       "repository": {
         "name": "docsy-site",
@@ -178,8 +246,44 @@ The response to the query:
                 <td style="text-align: center;">{{this.viewer.repositories.totalCount}}</td>
                 <td style="text-align: center;">{{this.viewer.repository.name}}</td>
                 <td style="text-align: center;">{{this.viewer.repository.description}}</td>
-                <td style="text-align: center;"><a href="{{this.viewer.repository.url}}">{{this.viewer.repository.url}}</a></td>
+                <td style="text-align: center;"><a
+                        href="{{this.viewer.repository.url}}">{{this.viewer.repository.url}}</a></td>
             </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td style="width: 50%; text-align: center" colspan="2">
+                    <strong>My last 10 repositories</strong>
+                </td>
+            </tr>
+            {{#each viewer.repositories.nodes}}
+            <tr>
+                <td style="width: 50%;">
+                    <ul>
+                        <li style="text-align: left;">Name</li>
+                        <li style="text-align: left;">URL</li>
+                        {{#if this.description}}
+                        <li style="text-align: left;">Description</li>
+                        {{/if}}
+                    </ul>
+                </td>
+                <td style="width: 50%;">
+                    <ul>
+                        <li style="text-align: left;">{{this.name}}</li>
+                        <li style="text-align: left;"><a
+                        href="{{this.url}}">{{this.url}}</a></li>
+                        {{#if this.description}}
+                        <li style="text-align: left;">{{this.description}}</li>
+                        {{/if}}
+                    </ul>
+                </td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

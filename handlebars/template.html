@@ -31,8 +31,44 @@
                 <td style="text-align: center;">{{this.viewer.repositories.totalCount}}</td>
                 <td style="text-align: center;">{{this.viewer.repository.name}}</td>
                 <td style="text-align: center;">{{this.viewer.repository.description}}</td>
-                <td style="text-align: center;"><a href="{{this.viewer.repository.url}}">{{this.viewer.repository.url}}</a></td>
+                <td style="text-align: center;"><a
+                        href="{{this.viewer.repository.url}}">{{this.viewer.repository.url}}</a></td>
             </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td style="width: 50%; text-align: center" colspan="2">
+                    <strong>My last 10 repositories</strong>
+                </td>
+            </tr>
+            {{#each viewer.repositories.nodes}}
+            <tr>
+                <td style="width: 50%;">
+                    <ul>
+                        <li style="text-align: left;">Name</li>
+                        <li style="text-align: left;">URL</li>
+                        {{#if this.description}}
+                        <li style="text-align: left;">Description</li>
+                        {{/if}}
+                    </ul>
+                </td>
+                <td style="width: 50%;">
+                    <ul>
+                        <li style="text-align: left;">{{this.name}}</li>
+                        <li style="text-align: left;"><a
+                            href="{{this.url}}">{{this.url}}</a></li>
+                        {{#if this.description}}
+                        <li style="text-align: left;">{{this.description}}</li>
+                        {{/if}}
+                    </ul>
+                </td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
