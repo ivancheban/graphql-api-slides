@@ -74,7 +74,7 @@ https://graphql.org/img/graphiql.mp4?x
 This is an example of a query in GitHub:
 
 ```graphql
-query ($number_of_repos: Int!) {
+query ($number_of_repos: Int!, $repo_name: String!) {
   viewer {
     name
     bio
@@ -87,7 +87,7 @@ query ($number_of_repos: Int!) {
         description
       }
     }
-    repository(name: "docsy-site") {
+    repository(name: $repo_name) {
       name
       description
       url
@@ -108,7 +108,8 @@ This query has variables. You input variables in the dedicated window at the bot
 
 ```json
 {
-  "number_of_repos": 10
+  "number_of_repos": 10,
+  "repo_name": "docsy-site"
 }
 ```
 
