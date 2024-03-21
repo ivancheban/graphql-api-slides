@@ -1,6 +1,6 @@
 +++
 outputs = ["Reveal"]
-title = "Create online presentations with Hugo"
+title = "Documenting GraphQL API"
 +++
 
 ## GraphQL API Docs
