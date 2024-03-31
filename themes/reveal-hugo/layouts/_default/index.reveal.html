@@ -1,4 +1,5 @@
 {{ define "main" }}
   {{ partial "reveal-hugo/slides" (slice .Page) }}
   {{ partial "reveal-hugo/slides" (where .Site.RegularPages "Type" "home") }}
+  {{ partial "google_analytics.html" . }}
 {{ end }}
