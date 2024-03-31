@@ -61,7 +61,11 @@ title = "Documenting GraphQL API"
 
 * GraphiQL is an in-browser tool for writing, validating, and testing GraphQL queries.
 
-<div class="graphiqlVid"> <video autoplay="" loop="" playsinline=""><source src="https://graphql.org/img/graphiql.mp4?x" type="video/mp4"></video></div>
+<div class="graphiqlVid"> 
+  <video autoplay loop playsinline muted>
+    <source src="https://graphql.org/img/graphiql.mp4?x" type="video/mp4">
+  </video>
+</div>
 
 https://graphql.org/img/graphiql.mp4?x
 

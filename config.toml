@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "GraphQL API Slides"
 theme = "reveal-hugo"
 
+googleAnalytics ="G-VK5STNK5K8"
+
 [markup.goldmark.renderer]
 unsafe = true
 
