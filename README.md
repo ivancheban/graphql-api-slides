@@ -11,13 +11,13 @@ To see the presentation live, visit [ivancheban.github.io/online-presentation](h
 2. Clone this repository:
 
 ```shell
-git clone https://github.com/ivancheban/online-presentation.git
+git clone https://github.com/ivancheban/graphql-api-slides.git
 ```
 
 3. Change directories and run Hugo:
 
 ```shell
-cd online-presentation
+cd graphql-api-slides
 
 hugo server
 ```
