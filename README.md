@@ -2,7 +2,7 @@
 
 A boilerplate and demo presentation for the [reveal-hugo](https://dzello.com/reveal-hugo) Reveal.js Hugo theme.
 
-To see the presentation live, visit [ivancheban.github.io/online-presentation](https://ivancheban.github.io/online-presentation).
+To see the presentation live, visit [graphql-api-slides.netlify.app](https://graphql-api-slides.netlify.app/#/).
 
 # Usage
 
